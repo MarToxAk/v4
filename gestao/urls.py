@@ -21,5 +21,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('comparador.urls')),
     path('', include('teste.urls')),
+    path('pousada/', include('pousada.urls')),
     path('chat2/', include('chatbot.urls'), name='chatbot'),
 ]
