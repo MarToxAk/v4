@@ -7,8 +7,8 @@ from .photo import *
 from datetime import date
 
 
-locale.setlocale(locale.LC_MONETARY, 'pt_BR.UTF-8')
-locale.setlocale(locale.LC_ALL, 'pt_BR.UTF-8')
+locale.setlocale(locale.LC_MONETARY, 'pt-BR.UTF-8')
+locale.setlocale(locale.LC_ALL, 'pt-BR.UTF-8')
 
 
 class CasadePedraCotacao(models.Model):
