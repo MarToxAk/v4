@@ -22,5 +22,6 @@ urlpatterns = [
     path('', include('comparador.urls')),
     path('', include('teste.urls')),
     path('pousada/', include('pousada.urls')),
+    path('cotacao/', include('cotacao.urls')),
     path('chat2/', include('chatbot.urls'), name='chatbot'),
 ]

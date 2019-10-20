@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'chatterbot.ext.django_chatterbot',
     'channels',
     'pousada',
+    'cotacao'
 ]
 
 MIDDLEWARE = [
