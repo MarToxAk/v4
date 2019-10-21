@@ -1,5 +1,10 @@
 from django import forms
-from .models import HospedeModels, CotaçõesHospedeModels, CriançasDadoModels
+from .models import HospedeModels, CotaçõesHospedeModels, TextoWhatsappModels
+
+class TextoWhatsappForms(forms.ModelForm):
+    class Meta:
+        model = TextoWhatsappModels
+        fields = '__all__'
 
 class HospedeForms(forms.ModelForm):
     class Meta:

@@ -5,6 +5,8 @@ from django.db import models
 #Seção de Configuração
 class TextoWhatsappModels(models.Model):
     texto = models.TextField()
+    check_in = models.DateField(default=None)
+    check_out = models.DateField(default=None)
 
     def __str__(self):
         self.texto
