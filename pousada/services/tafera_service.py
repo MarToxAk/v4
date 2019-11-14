@@ -11,8 +11,7 @@ def webdrive(checkin, checkout, person_num):
     link = f'https://reservations.omnibees.com/default.aspx?q=3661&diff=false&CheckIn={checkin}&CheckOut={checkout}&Code=&group_code=&loyality_card=&NRooms=1&ad={person_num}'
     options = webdriver.ChromeOptions()
     options.add_argument('headless')
-    browser = webdriver.Chrome(executable_path="/Users/martoox/Downloads/chromedriver",
-                               chrome_options=options)
+    browser = webdriver.Chrome(chrome_options=options)
     browser.get(link)
     nav = browser.find_element_by_xpath("//div[@id='show_3']/table/tbody/tr/td/div/div[3]/div/h6")
     preco = str(nav.text)
