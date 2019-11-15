@@ -10,32 +10,34 @@ def post_facebook_message(fbid, recevied_message):
     response_msg = json.dumps({"recipient": {"id": fbid},
                                "message": {"text": f'1{recevied_message}'}})
     teste = json.dumps({"recipient": {"id": fbid},
-                        "attachment": {
-                            "type": "template",
-                            "payload": {
-                                "template_type": "generic",
-                                "elements": [{
-                                    "title": "Americano",
-                                    "subtitle": "5$",
-                                    "image_url": "img2.jpg",
-                                    "buttons": [{
-                                        "type": "postback",
-                                        "title": "Detail",
-                                        "payload": "americano_detail",
-                                    }],
-                                }, {
-                                    "title": "Latte",
-                                    "subtitle": "5.5$",
-                                    "image_url": "img3.jpg",
-                                    "buttons": [{
-                                        "type": "postback",
-                                        "title": "Detail",
-                                        "payload": "latte_detail",
-                                    }],
-                                }]
+                        "message": {
+                            "attachment": {
+                                "type": "template",
+                                "payload": {
+                                    "template_type": "generic",
+                                    "elements": [{
+                                        "title": "Americano",
+                                        "subtitle": "5$",
+                                        "image_url": "img2.jpg",
+                                        "buttons": [{
+                                            "type": "postback",
+                                            "title": "Detail",
+                                            "payload": "americano_detail",
+                                        }],
+                                    }, {
+                                        "title": "Latte",
+                                        "subtitle": "5.5$",
+                                        "image_url": "img3.jpg",
+                                        "buttons": [{
+                                            "type": "postback",
+                                            "title": "Detail",
+                                            "payload": "latte_detail",
+                                        }],
+                                    }]
+                                }
                             }
                         }
-                    }
+                        }
                        )
     status = requests.post(post_message_url,
                            headers={"Content-Type": "application/json"},
