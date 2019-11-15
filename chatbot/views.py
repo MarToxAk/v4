@@ -70,7 +70,7 @@ def room(request, room_name):
 class SpotifyBotView(View):
 
     def get(self, request, *args, **kwargs):
-        if self.request.GET.get(u'hub.verify_token') == settings.TOKEN_VERIFY:
+        if self.request.GET.get(u'hub.verify_token') == settings.TOKEN_VERIFY or self.request.GET.get(u'hub.verify_token') == settings.TOKEN_VERIFY2:
             return HttpResponse(self.request.GET['hub.challenge'])
         else:
             return HttpResponse('Error, invalid token')
