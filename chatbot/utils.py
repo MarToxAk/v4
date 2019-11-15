@@ -8,25 +8,22 @@ def post_facebook_message(fbid, recevied_message):
     post_message_url = 'https://graph.facebook.com/v2.6/me/messages?' \
                        'access_token={}'.format(settings.ACCESS_TOKEN)
     teste = json.dumps({"recipient": {"id": fbid},
+                        "messaging_type": "RESPONSE",
                         "message": {
-                            "attachment": {
-                                "type": "template",
-                                "payload": {
-                                    "template_type": "open_graph",
-                                    "elements": [
-                                        {
-                                            "url": "https://open.spotify.com/track/7GhIk7Il098yCjg4BQjzvb",
-                                            "buttons": [
-                                                {
-                                                    "type": "web_url",
-                                                    "url": "https://en.wikipedia.org/wiki/Rickrolling",
-                                                    "title": "View More"
-                                                }
-                                            ]
-                                        }
-                                    ]
+                            "text": "Pick a color:",
+                            "quick_replies": [
+                                {
+                                    "content_type": "text",
+                                    "title": "Red",
+                                    "payload": "<POSTBACK_PAYLOAD>",
+                                    "image_url": "http://example.com/img/red.png"
+                                }, {
+                                    "content_type": "text",
+                                    "title": "Green",
+                                    "payload": "<POSTBACK_PAYLOAD>",
+                                    "image_url": "http://example.com/img/green.png"
                                 }
-                            }
+                            ]
                         }
                         }
                        )
