@@ -22,6 +22,11 @@ def post_facebook_message(fbid, recevied_message):
                                             "title": "Ligue para Gente",
                                             "payload": "+5512996745251"
                                         },
+                                        {
+                                            "type": "postback",
+                                            "title": "Ligue para Gente",
+                                            "payload": "+5512996745251"
+                                        },
                                     ]
                                 }
                             }
