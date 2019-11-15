@@ -20,10 +20,10 @@ def post_facebook_message(fbid, recevied_message):
                                     "passenger_name": "SMITH\/NICOLAS",
                                     "pnr_number": "CG4X7U",
                                     "seat": "74J",
-                                    "logo_image_url": "https:\/\/www.example.com\/en\/logo.png",
-                                    "header_image_url": "https:\/\/www.example.com\/en\/fb\/header.png",
+                                    "logo_image_url": "https://s2.logaster.com/static/v3/img/products/logo.png",
+                                    "header_image_url": "https://s2.logaster.com/static/v3/img/products/logo.png",
                                     "qr_code": "M1SMITH\/NICOLAS  CG4X7U nawouehgawgnapwi3jfa0wfh",
-                                    "above_bar_code_image_url": "https:\/\/www.example.com\/en\/PLAT.png",
+                                    "above_bar_code_image_url": "https://s2.logaster.com/static/v3/img/products/logo.png",
                                     "auxiliary_fields": [
                                       {
                                         "label": "Terminal",
