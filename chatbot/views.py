@@ -12,6 +12,7 @@ from pprint import pprint
 from django.views.decorators.csrf import csrf_exempt
 from django.utils.decorators import method_decorator
 from .utils import post_facebook_message
+from django.conf import settings
 
 
 class ChatterBotAppView(TemplateView):
@@ -87,9 +88,8 @@ class SpotifyBotView(View):
             for message in entry['messaging']:
                 if 'message' in message:
                     pprint(message)
-                    post_facebook_message(message['sender']['id'])
-                else:
-                    pprint("Erro")
+                    post_facebook_message(message['sender']['id'],
+                                          message['message']['text'])
         return HttpResponse()
     
 
