@@ -10,40 +10,32 @@ def post_facebook_message(fbid, recevied_message):
     response_msg = json.dumps({"recipient": {"id": fbid},
                                "message": {"text": f'1{recevied_message}'}})
     teste = json.dumps({"recipient": {"id": fbid},
-                        "message": {
-                            "attachment": {
-                                "type": "template",
-                                "payload": {
-                                    "template_type": "button",
-                                    "text": "Try the postback button!",
-                                    "persistent_menu": [
-                                        {
-                                            "locale": "default",
-                                            "composer_input_disabled": false,
-                                            "call_to_actions": [
-                                                {
-                                                    "type": "postback",
-                                                    "title": "Talk to an agent",
-                                                    "payload": "CARE_HELP"
-                                                },
-                                                {
-                                                    "type": "postback",
-                                                    "title": "Outfit suggestions",
-                                                    "payload": "CURATION"
-                                                },
-                                                {
-                                                    "type": "web_url",
-                                                    "title": "Shop now",
-                                                    "url": "https://www.originalcoastclothing.com/",
-                                                    "webview_height_ratio": "full"
-                                                }
-                                            ]
-                                        }
-                                    ]
-                                }
+                        "attachment": {
+                            "type": "template",
+                            "payload": {
+                                "template_type": "generic",
+                                "elements": [{
+                                    "title": "Americano",
+                                    "subtitle": "5$",
+                                    "image_url": "img2.jpg",
+                                    "buttons": [{
+                                        "type": "postback",
+                                        "title": "Detail",
+                                        "payload": "americano_detail",
+                                    }],
+                                }, {
+                                    "title": "Latte",
+                                    "subtitle": "5.5$",
+                                    "image_url": "img3.jpg",
+                                    "buttons": [{
+                                        "type": "postback",
+                                        "title": "Detail",
+                                        "payload": "latte_detail",
+                                    }],
+                                }]
                             }
                         }
-                        }
+                    }
                        )
     status = requests.post(post_message_url,
                            headers={"Content-Type": "application/json"},
