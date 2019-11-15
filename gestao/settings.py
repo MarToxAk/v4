@@ -14,7 +14,7 @@ import os
 
 TOKEN_VERIFY = '123456789'
 
-ACCESS_TOKEN = 'EAAlX1c8ZCs6QBAICvhZA0iknvq2v6nLTvodZBWgC900jEnT9ZAWfVrbNFnndWN50OLNPCZAwZA94eifTZCAllXawcGiB55pgDdGU2WZC1lLPWYIZA0l3endYjkO8gIsXVXNVnsHCKzttEsEp60lrPVCvr3eochSbTEiqA7tIEFKgj4gZDZD'
+ACCESS_TOKEN = 'EAAlX1c8ZCs6QBABdy9RkgaHi0cSFe8YdVBzZCYohZCccbj54S9Rat4QhhzwAL8MfHdaeM7djVTLQnWKIPhgx73Nei3my0MqEkd1ZCRokHhAWqour0bgx4WQI5j77tOZBDgvFZCpmHwekJBWvokArdKCCkWHv2ugGeH6NOnmu4W2gZDZD'
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
