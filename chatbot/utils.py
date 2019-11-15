@@ -21,7 +21,7 @@ def post_facebook_message(fbid, recevied_message):
                                     "default_action": {
                                       "type": "web_url",
                                       "url": "https://petersfancybrownhats.com/view?item=103",
-                                      "messenger_extensions": false,
+                                      "messenger_extensions": "false",
                                       "webview_height_ratio": "tall",
                                       "fallback_url": "https://petersfancybrownhats.com/"
                                     },
