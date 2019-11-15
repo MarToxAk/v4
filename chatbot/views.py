@@ -87,8 +87,7 @@ class SpotifyBotView(View):
             for message in entry['messaging']:
                 if 'message' in message:
                     pprint(message)
-                    post_facebook_message(message['sender']['id'],
-                                          message['message']['text'])
+                    post_facebook_message(message['sender']['id'])
                 else:
                     pprint("Erro")
         return HttpResponse()
