@@ -91,8 +91,7 @@ class SpotifyBotView(View):
                     post_facebook_message(message['sender']['id'],
                                           message['message']['text'])
                 else:
-                    pprint(message)
-                    post_facebook_message_error(message['sender']['id'])
+                    pprint("Erro")
         return HttpResponse()
     
 
