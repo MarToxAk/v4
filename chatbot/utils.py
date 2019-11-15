@@ -19,8 +19,8 @@ def post_facebook_message(fbid, recevied_message):
                                     "buttons": [
                                         {
                                             "type": "phone_number",
-                                            "url": "+5512996745251",
-                                            "title": "Ligue para Gente"
+                                            "title": "Ligue para Gente",
+                                            "payload": "+5512996745251"
                                         },
                                     ]
                                 }
