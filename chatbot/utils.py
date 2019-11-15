@@ -15,6 +15,7 @@ def post_facebook_message(fbid, recevied_message):
                                     "template_type": "generic",
                                     "elements": [{
                                         "title": "Americano",
+                                        "image_url":"https://naclick.com.br/wp-content/themes/clicktelecom/assets/img/banner_teste.png",
                                         "subtitle": "5$",
                                         "buttons": [{
                                             "type": "postback",
