@@ -15,12 +15,12 @@ def post_facebook_message(fbid, recevied_message):
                                 {
                                     "content_type": "text",
                                     "title": "Red",
-                                    "payload": "<POSTBACK_PAYLOAD>",
+                                    "payload": "<POSTBACK_PAYLOAD1>",
                                     "image_url": "http://example.com/img/red.png"
                                 }, {
                                     "content_type": "text",
                                     "title": "Green",
-                                    "payload": "<POSTBACK_PAYLOAD>",
+                                    "payload": "<POSTBACK_PAYLOAD2>",
                                     "image_url": "http://example.com/img/green.png"
                                 }
                             ]
