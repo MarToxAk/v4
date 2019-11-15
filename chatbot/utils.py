@@ -18,7 +18,6 @@ def post_facebook_message(fbid, recevied_message):
                                     "elements": [{
                                         "title": "Americano",
                                         "subtitle": "5$",
-                                        "image_url": "img2.jpg",
                                         "buttons": [{
                                             "type": "postback",
                                             "title": "Detail",
@@ -27,7 +26,6 @@ def post_facebook_message(fbid, recevied_message):
                                     }, {
                                         "title": "Latte",
                                         "subtitle": "5.5$",
-                                        "image_url": "img3.jpg",
                                         "buttons": [{
                                             "type": "postback",
                                             "title": "Detail",
