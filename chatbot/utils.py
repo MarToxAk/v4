@@ -15,18 +15,13 @@ def post_facebook_message(fbid, recevied_message):
                                 "type": "template",
                                 "payload": {
                                     "template_type": "button",
-                                    "text": "What do you want to do next?",
+                                    "text": "Try the postback button!",
                                     "buttons": [
                                         {
                                             "type": "postback",
-                                            "title": "Ligue para Gente",
-                                            "payload": "+5512996745251"
-                                        },
-                                        {
-                                            "type": "postback",
-                                            "title": "Ligue para Gente",
-                                            "payload": "+5512996745251"
-                                        },
+                                            "title": "Postback Button",
+                                            "payload": "DEVELOPER_DEFINED_PAYLOAD"
+                                        }
                                     ]
                                 }
                             }
