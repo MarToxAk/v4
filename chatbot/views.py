@@ -11,7 +11,7 @@ import json
 from pprint import pprint
 from django.views.decorators.csrf import csrf_exempt
 from django.utils.decorators import method_decorator
-from .utils import post_facebook_message
+from .utils import post_facebook_message, post_facebook_message_error
 from django.conf import settings
 
 
@@ -90,6 +90,9 @@ class SpotifyBotView(View):
                     pprint(message)
                     post_facebook_message(message['sender']['id'],
                                           message['message']['text'])
+                else:
+                    pprint(message)
+                    post_facebook_message_error(message['sender']['id'])
         return HttpResponse()
     
 
