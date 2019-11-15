@@ -9,24 +9,24 @@ def post_facebook_message(fbid, recevied_message):
                        'access_token={}'.format(settings.ACCESS_TOKEN)
     teste = json.dumps({"recipient": {"id": fbid},
                         "message": {
-                          "attachment": {
-                            "type": "template",
-                            "payload": {
-                              "template_type": "open_graph",
-                              "elements": [
-                                {
-                                  "url": "https://open.spotify.com/track/7GhIk7Il098yCjg4BQjzvb",
-                                  "buttons": [
-                                    {
-                                      "type": "web_url",
-                                      "url": "https://en.wikipedia.org/wiki/Rickrolling",
-                                      "title": "View More"
-                                    }
-                                  ]
+                            "attachment": {
+                                "type": "template",
+                                "payload": {
+                                    "template_type": "open_graph",
+                                    "elements": [
+                                        {
+                                            "url": "https://open.spotify.com/track/7GhIk7Il098yCjg4BQjzvb",
+                                            "buttons": [
+                                                {
+                                                    "type": "web_url",
+                                                    "url": "https://en.wikipedia.org/wiki/Rickrolling",
+                                                    "title": "View More"
+                                                }
+                                            ]
+                                        }
+                                    ]
                                 }
-                              ]
                             }
-                          }
                         }
                         }
                        )
