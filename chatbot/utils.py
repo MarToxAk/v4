@@ -18,7 +18,7 @@ def post_facebook_message(fbid, recevied_message):
                                     "text": "What do you want to do next?",
                                     "buttons": [
                                         {
-                                            "type": "phone_number",
+                                            "type": "postback",
                                             "title": "Ligue para Gente",
                                             "payload": "+5512996745251"
                                         },
