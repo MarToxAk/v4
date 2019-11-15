@@ -18,9 +18,9 @@ def post_facebook_message(fbid, recevied_message):
                                     "text": "What do you want to do next?",
                                     "buttons": [
                                         {
-                                            "type": "web_url",
-                                            "url": "https://www.messenger.com",
-                                            "title": "Visit Messenger"
+                                            "type": "phone_number",
+                                            "url": "+5512996745251",
+                                            "title": "Ligue para Gente"
                                         },
                                     ]
                                 }
