@@ -13,12 +13,12 @@ def post_facebook_message(fbid, recevied_message):
                             "quick_replies": [
                                 {
                                     "content_type": "text",
-                                    "title": "Red",
+                                    "title": "Red 1",
                                     "payload": "<POSTBACK_PAYLOAD1>",
                                     "image_url": "http://example.com/img/red.png"
                                 }, {
                                     "content_type": "text",
-                                    "title": "Green",
+                                    "title": "Green 2",
                                     "payload": "<POSTBACK_PAYLOAD2>",
                                     "image_url": "http://example.com/img/green.png"
                                 }
