@@ -9,20 +9,7 @@ def post_facebook_message(fbid, recevied_message):
                        'access_token={}'.format(settings.ACCESS_TOKEN)
     teste = json.dumps({"recipient": {"id": fbid},
                         "message": {
-                            "text": "Pick a color:",
-                            "quick_replies": [
-                                {
-                                    "content_type": "text",
-                                    "title": "Red 1",
-                                    "payload": "<POSTBACK_PAYLOAD1>",
-                                    "image_url": "http://example.com/img/red.png"
-                                }, {
-                                    "content_type": "text",
-                                    "title": "Green 2",
-                                    "payload": "<POSTBACK_PAYLOAD2>",
-                                    "image_url": "http://example.com/img/green.png"
-                                }
-                            ]
+                            "text": "Teste de Mensagem"
                         }
                         }
                        )
