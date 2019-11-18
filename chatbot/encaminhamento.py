@@ -10,4 +10,5 @@ def test(incoming_message):
             if any(ext in list_oi for ext in message['message']['text']):
                 post_facebook_message(message['sender']['id'])
             else:
+                pprint("Erro")
                 pass
