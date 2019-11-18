@@ -7,7 +7,7 @@ def test(incoming_message):
             pprint(message)
 
             pprint(message['message']['text'])
-            if any(list_oi in message['message']['text']):
+            if any(ext in list_oi for ext in message['message']['text']):
                 post_facebook_message(message['sender']['id'])
             else:
                 pass
