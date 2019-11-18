@@ -10,7 +10,7 @@ def post_facebook_message(fbid):
     teste = json.dumps({"recipient": {"id": fbid},
                         "messaging_type": "RESPONSE",
                         "message": {
-                            "text": "*BOT ILHA BABY*:Bem-Vindo a ILHA BABY. Responda com uma das opções abaixo.",
+                            "text": "*BOT ILHA BABY*: Bem-Vindo a ILHA BABY. Responda com uma das opções abaixo.",
                             "quick_replies":[
                             {
                                 "content_type": "text",
