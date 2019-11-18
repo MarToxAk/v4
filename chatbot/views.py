@@ -86,11 +86,12 @@ class SpotifyBotView(View):
         
         for entry in incoming_message['entry']:
             for message in entry['messaging']:
-                if 'message' in message:
-                    post_facebook_message(message['sender']['id'],
-                                          message['message']['text'])
-                else:
-                    pass
+                for text in message['text']:
+                    if 'oi' in text:
+                        post_facebook_message(message['sender']['id'],
+                                              message['message']['text'])
+                    else:
+                        pass
         return HttpResponse()
     
 
