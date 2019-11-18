@@ -7,8 +7,9 @@ def test(incoming_message):
             pprint(message)
 
             pprint(message['message']['text'])
-            if any(ext in list_oi for ext in message['message']['text']):
-                post_facebook_message(message['sender']['id'])
-            else:
-                pprint("Erro")
-                pass
+            for oi in list_oi:
+                if oi in message['message']['text']:
+                    post_facebook_message(message['sender']['id'])
+                else:
+                    pprint("Erro")
+                    pass
