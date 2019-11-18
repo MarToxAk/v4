@@ -15,13 +15,13 @@ def post_facebook_message(fbid, first_name):
                             {
                                 "content_type": "text",
                                 "title": "Quero Comprar",
-                                "payload": "<POSTBACK_PAYLOAD>",
+                                "payload": "comprar",
                                 "image_url": "https://cdn.icon-icons.com/icons2/67/PNG/512/shoppingcart_compra_13339.png"
                             }, {
                                 "content_type": "text",
-                                "title": "Green",
-                                "payload": "<POSTBACK_PAYLOAD>",
-                                "image_url": "http://example.com/img/green.png"
+                                "title": "Sair",
+                                "payload": "sair",
+                                "image_url": "https://cdn3.iconfinder.com/data/icons/interface/100/close_button_2-512.png"
                             }
                         ]
                         }

@@ -20,6 +20,7 @@ def test(incoming_message):
                         first_name = json.loads(url.read().decode('utf-8'))
                         pprint(first_name)
                     post_facebook_message(message['sender']['id'], first_name['first_name'])
+                elif ''
 
                 else:
                     pass
