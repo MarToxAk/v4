@@ -88,7 +88,8 @@ TEMPLATES = [
 CHATTERBOT = {
     'name': 'Tech Support Bot',
     'logic_adapters': [
-        'chatterbot.logic.TimeLogicAdapter',
+        'chatterbot.logic.MathematicalEvaluation',
+        'chatterbot.logic.BestMatch'
     ],
     'trainer': 'chatterbot.trainers.ChatterBotCorpusTrainer',
     'training_data': [
