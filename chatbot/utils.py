@@ -33,7 +33,7 @@ def post_facebook_message(fbid, first_name):
     pprint(status.json())
 def post_facebook_message_sair(fbid, first_name):
     post_message_url = 'https://graph.facebook.com/v2.6/me/messages?' \
-                       'access_token={}'.format(settings.ACCESS_TOKEN3)
+                       'access_token={}'.format(settings.ACCESS_TOKEN2)
     teste = json.dumps({"recipient": {"id": fbid},
                         "messaging_type": "RESPONSE",
                         "message": {
