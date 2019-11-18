@@ -15,10 +15,11 @@ def test(incoming_message):
             pprint(message['message']['text'])
             for oi in list_oi:
                 if oi in message['message']['text']:
-                    post_facebook_message(message['sender']['id'])
                     with urllib.request.urlopen(
                             f"https://graph.facebook.com/{message['sender']['id']}?fields=first_name,last_name,profile_pic&access_token={settings.ACCESS_TOKEN}") as url:
-                        data = json.loads(url.read().decode('utf-8'))
-                        pprint(data)
+                        first_name = json.loads(url.read().decode('utf-8'))
+                        pprint(first_name)
+                    post_facebook_message(message['sender']['id'], first_name['first_name'])
+
                 else:
                     pass
