@@ -20,7 +20,7 @@ def test(incoming_message):
                         first_name = json.loads(url.read().decode('utf-8'))
                         pprint(first_name)
                     post_facebook_message(message['sender']['id'], first_name['first_name'])
-                elif 'sair' in message['message']['text']:
+                elif 'Sair' in message['message']['text']:
                     with urllib.request.urlopen(
                             f"https://graph.facebook.com/{message['sender']['id']}?fields=first_name,last_name,profile_pic&access_token={settings.ACCESS_TOKEN}") as url:
                         first_name = json.loads(url.read().decode('utf-8'))
