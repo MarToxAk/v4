@@ -56,7 +56,7 @@ def post_facebook_message_checkin(fbid, first_name):
                        'access_token={}'.format(settings.ACCESS_TOKEN)
     teste = json.dumps({"recipient": {"id": fbid},
                         "message": {
-                            "text": f"*BOT ILHA BABY*: Agora {first_name}, Digite a data que você quer entrar no seguinte formato DD/MM/AAAA.(Exemplo:. {datetime.date.strftime(datetime.date.today(), '%d/%m/%Y')}.",
+                            "text": f"*BOT ILHA BABY*: Agora {first_name}, Digite a data que você quer entrar no seguinte formato DD/MM/AAAA.(Exemplo:. {datetime.date.strftime(datetime.date.today(), '%d/%m/%Y')}).",
                         }
                         }
                        )
@@ -70,7 +70,15 @@ def post_facebook_message_date(fbid, first_name):
                        'access_token={}'.format(settings.ACCESS_TOKEN)
     teste = json.dumps({"recipient": {"id": fbid},
                         "message": {
-                            "text": f"*BOT ILHA BABY*: Obrigado pela Atenção {first_name}, Ok tudo Certo.",
+                            "text": f"*BOT ILHA BABY*: Brigado {first_name}, Digite a data que você quer sair no seguinte formato DD/MM/AAAA.(Exemplo:. {datetime.date.strftime(datetime.date.today(), '%d/%m/%Y')})",
+                            "quick_replies": [
+                                {
+                                    "content_type": "text",
+                                    "title": "Data Check-out",
+                                    "payload": "Check-out",
+                                    "image_url": "https://www.netclipart.com/pp/m/104-1044961_calendar-icon-png-date-events-icon-white-png.png"
+                                },
+                            ]
                         }
                         }
                        )
