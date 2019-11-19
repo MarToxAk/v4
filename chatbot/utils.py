@@ -36,7 +36,8 @@ def post_facebook_message_sair(fbid, first_name):
                        'access_token={}'.format(settings.ACCESS_TOKEN)
     teste = json.dumps({"recipient": {"id": fbid},
                         "message": {
-                            "text": f"*BOT ILHA BABY*: Obrigado pela Atenção {first_name}.",                      }
+                            "text": f"*BOT ILHA BABY*: Obrigado pela Atenção {first_name}.",
+                        }
                         }
                        )
     status = requests.post(post_message_url,
