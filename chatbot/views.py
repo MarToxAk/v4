@@ -16,7 +16,7 @@ from django.conf import settings
 
 
 class ChatterBotAppView(TemplateView):
-    template_name = 'politica.html'
+    template_name = 'app.html'
 
 
 class ChatterBotApiView(View):
