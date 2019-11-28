@@ -1,195 +1,249 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="en">
+<html lang="en"><head>
+    <meta charset="utf-8">
+    <title>Tiny, opensource, Bootstrap WYSIWYG rich text editor from MindMup</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="opensource rich wysiwyg text editor jquery bootstrap execCommand html5">
+    <meta name="description" content="This tiny jQuery Bootstrap WYSIWYG plugin turns any DIV into a HTML5 rich text editor">
+    <link rel="apple-touch-icon" href="//mindmup.s3.amazonaws.com/lib/img/apple-touch-icon.png">
+    <link rel="shortcut icon" href="https://d1g6a398qq2djm.cloudfront.net/img/favicon.ico">
+    <link href="external/google-code-prettify/prettify.css" rel="stylesheet">
+    <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
+    <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-responsive.min.css" rel="stylesheet">
+		<link href="//netdna.bootstrapcdn.com/font-awesome/3.0.2/css/font-awesome.css" rel="stylesheet">
+    <script src="https://connect.facebook.net/en_GB/all.js?hash=1333c9cd7732904e69854b4d40f325e2&amp;ua=modern_es6" async="" crossorigin="anonymous"></script><script id="twitter-wjs" src="https://platform.twitter.com/widgets.js"></script><script id="facebook-jssdk" src="https://connect.facebook.net/en_GB/all.js#xfbml=1"></script><script async="" src="//www.google-analytics.com/analytics.js"></script><script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+		<script src="external/jquery.hotkeys.js"></script>
+    <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/js/bootstrap.min.js"></script>
+    <script src="external/google-code-prettify/prettify.js"></script>
+		<link href="index.css" rel="stylesheet">
+    <script src="bootstrap-wysiwyg.js"></script>
+  <script src="chrome-extension://mooikfkahbdckldjjndioackbalphokd/assets/prompt.js"></script><script charset="utf-8" src="https://platform.twitter.com/js/button.9a57558490548c2dde66afe19af6c010.js"></script><style type="text/css">.fb_hidden{position:absolute;top:-10000px;z-index:10001}.fb_reposition{overflow:hidden;position:relative}.fb_invisible{display:none}.fb_reset{background:none;border:0;border-spacing:0;color:#000;cursor:auto;direction:ltr;font-family:"lucida grande", tahoma, verdana, arial, sans-serif;font-size:11px;font-style:normal;font-variant:normal;font-weight:normal;letter-spacing:normal;line-height:1;margin:0;overflow:visible;padding:0;text-align:left;text-decoration:none;text-indent:0;text-shadow:none;text-transform:none;visibility:visible;white-space:normal;word-spacing:normal}.fb_reset>div{overflow:hidden}@keyframes fb_transform{from{opacity:0;transform:scale(.95)}to{opacity:1;transform:scale(1)}}.fb_animate{animation:fb_transform .3s forwards}
+.fb_dialog{background:rgba(82, 82, 82, .7);position:absolute;top:-10000px;z-index:10001}.fb_dialog_advanced{border-radius:8px;padding:10px}.fb_dialog_content{background:#fff;color:#373737}.fb_dialog_close_icon{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 0 transparent;cursor:pointer;display:block;height:15px;position:absolute;right:18px;top:17px;width:15px}.fb_dialog_mobile .fb_dialog_close_icon{left:5px;right:auto;top:5px}.fb_dialog_padding{background-color:transparent;position:absolute;width:1px;z-index:-1}.fb_dialog_close_icon:hover{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -15px transparent}.fb_dialog_close_icon:active{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -30px transparent}.fb_dialog_iframe{line-height:0}.fb_dialog_content .dialog_title{background:#6d84b4;border:1px solid #365899;color:#fff;font-size:14px;font-weight:bold;margin:0}.fb_dialog_content .dialog_title>span{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yd/r/Cou7n-nqK52.gif) no-repeat 5px 50%;float:left;padding:5px 0 7px 26px}body.fb_hidden{height:100%;left:0;margin:0;overflow:visible;position:absolute;top:-10000px;transform:none;width:100%}.fb_dialog.fb_dialog_mobile.loading{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/ya/r/3rhSv5V8j3o.gif) white no-repeat 50% 50%;min-height:100%;min-width:100%;overflow:hidden;position:absolute;top:0;z-index:10001}.fb_dialog.fb_dialog_mobile.loading.centered{background:none;height:auto;min-height:initial;min-width:initial;width:auto}.fb_dialog.fb_dialog_mobile.loading.centered #fb_dialog_loader_spinner{width:100%}.fb_dialog.fb_dialog_mobile.loading.centered .fb_dialog_content{background:none}.loading.centered #fb_dialog_loader_close{clear:both;color:#fff;display:block;font-size:18px;padding-top:20px}#fb-root #fb_dialog_ipad_overlay{background:rgba(0, 0, 0, .4);bottom:0;left:0;min-height:100%;position:absolute;right:0;top:0;width:100%;z-index:10000}#fb-root #fb_dialog_ipad_overlay.hidden{display:none}.fb_dialog.fb_dialog_mobile.loading iframe{visibility:hidden}.fb_dialog_mobile .fb_dialog_iframe{position:sticky;top:0}.fb_dialog_content .dialog_header{background:linear-gradient(from(#738aba), to(#2c4987));border-bottom:1px solid;border-color:#043b87;box-shadow:white 0 1px 1px -1px inset;color:#fff;font:bold 14px Helvetica, sans-serif;text-overflow:ellipsis;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0;vertical-align:middle;white-space:nowrap}.fb_dialog_content .dialog_header table{height:43px;width:100%}.fb_dialog_content .dialog_header td.header_left{font-size:12px;padding-left:5px;vertical-align:middle;width:60px}.fb_dialog_content .dialog_header td.header_right{font-size:12px;padding-right:5px;vertical-align:middle;width:60px}.fb_dialog_content .touchable_button{background:linear-gradient(from(#4267B2), to(#2a4887));background-clip:padding-box;border:1px solid #29487d;border-radius:3px;display:inline-block;line-height:18px;margin-top:3px;max-width:85px;padding:4px 12px;position:relative}.fb_dialog_content .dialog_header .touchable_button input{background:none;border:none;color:#fff;font:bold 12px Helvetica, sans-serif;margin:2px -12px;padding:2px 6px 3px 6px;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0}.fb_dialog_content .dialog_header .header_center{color:#fff;font-size:16px;font-weight:bold;line-height:18px;text-align:center;vertical-align:middle}.fb_dialog_content .dialog_content{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/y9/r/jKEcVPZFk-2.gif) no-repeat 50% 50%;border:1px solid #4a4a4a;border-bottom:0;border-top:0;height:150px}.fb_dialog_content .dialog_footer{background:#f5f6f7;border:1px solid #4a4a4a;border-top-color:#ccc;height:40px}#fb_dialog_loader_close{float:left}.fb_dialog.fb_dialog_mobile .fb_dialog_close_button{text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0}.fb_dialog.fb_dialog_mobile .fb_dialog_close_icon{visibility:hidden}#fb_dialog_loader_spinner{animation:rotateSpinner 1.2s linear infinite;background-color:transparent;background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/yD/r/t-wz8gw1xG1.png);background-position:50% 50%;background-repeat:no-repeat;height:24px;width:24px}@keyframes rotateSpinner{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}
+.fb_iframe_widget{display:inline-block;position:relative}.fb_iframe_widget span{display:inline-block;position:relative;text-align:justify}.fb_iframe_widget iframe{position:absolute}.fb_iframe_widget_fluid_desktop,.fb_iframe_widget_fluid_desktop span,.fb_iframe_widget_fluid_desktop iframe{max-width:100%}.fb_iframe_widget_fluid_desktop iframe{min-width:220px;position:relative}.fb_iframe_widget_lift{z-index:1}.fb_iframe_widget_fluid{display:inline}.fb_iframe_widget_fluid span{width:100%}</style></head><evlist></evlist>
+  <body style="zoom: 1;">
 
-<head>
-  <meta charset="utf-8">
-  <title>Tiny, opensource, Bootstrap WYSIWYG rich text editor from MindMup</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="keywords" content="opensource rich wysiwyg text editor jquery bootstrap execCommand html5" />
-  <meta name="description"
-    content="This tiny jQuery Bootstrap WYSIWYG plugin turns any DIV into a HTML5 rich text editor" />
-  <link rel="apple-touch-icon" href="//mindmup.s3.amazonaws.com/lib/img/apple-touch-icon.png" />
-  <link rel="shortcut icon" href="http://mindmup.s3.amazonaws.com/lib/img/favicon.ico">
-  <link href="{% static '/external/google-code-prettify/prettify.css' %}" rel="stylesheet">
-  <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.no-icons.min.css"
-    rel="stylesheet">
-  <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-responsive.min.css" rel="stylesheet">
-  <link href="http://netdna.bootstrapcdn.com/font-awesome/3.0.2/css/font-awesome.css" rel="stylesheet">
-  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
-  <script src="{% static '/external/jquery.hotkeys.js' %}"></script>
-  <script src="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/js/bootstrap.min.js"></script>
-  <script src="{% static '/external/google-code-prettify/prettify.js' %}"></script>
-  <link href="{% static '/css/configwpp.css' %}" rel="stylesheet">
-  <script src="{% static '/js/bootstrap-wysiwyg.js' %}"></script>
-</head>
-
-<body>
+<div class="container">
   <div class="hero-unit">
-    <div id="alerts"></div>
+  <div class="pull-right">
+	<div class="fb-like fb_iframe_widget" data-href="http://facebook.com/mindmupapp" data-send="false" data-layout="button_count" data-width="100" data-show-faces="false" fb-xfbml-state="rendered" fb-iframe-plugin-query="app_id=&amp;container_width=216&amp;href=http%3A%2F%2Ffacebook.com%2Fmindmupapp&amp;layout=button_count&amp;locale=en_GB&amp;sdk=joey&amp;send=false&amp;show_faces=false&amp;width=100"><span style="vertical-align: bottom; width: 85px; height: 20px;"><iframe name="fddc86bda6fc38" width="100px" height="1000px" title="fb:like Facebook Social Plugin" frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="no" allow="encrypted-media" src="https://www.facebook.com/plugins/like.php?app_id=&amp;channel=https%3A%2F%2Fstaticxx.facebook.com%2Fconnect%2Fxd_arbiter.php%3Fversion%3D44%23cb%3Df161d3dbc19898c%26domain%3Dmindmup.github.io%26origin%3Dhttps%253A%252F%252Fmindmup.github.io%252Ffd0331ed7c8d2%26relation%3Dparent.parent&amp;container_width=216&amp;href=http%3A%2F%2Ffacebook.com%2Fmindmupapp&amp;layout=button_count&amp;locale=en_GB&amp;sdk=joey&amp;send=false&amp;show_faces=false&amp;width=100" style="border: none; visibility: visible; width: 85px; height: 20px;" class=""></iframe></span></div><br>
+    <iframe id="twitter-widget-0" scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen="true" class="twitter-follow-button twitter-follow-button-rendered" style="position: static; visibility: visible; width: 216px; height: 20px;" title="Twitter Follow Button" src="https://platform.twitter.com/widgets/follow_button.6a44a9d26983bbb5b04ae399f9e496fe.en.html#dnt=false&amp;id=twitter-widget-0&amp;lang=en&amp;screen_name=mindmup&amp;show_count=true&amp;show_screen_name=true&amp;size=m&amp;time=1574939936179" data-screen-name="mindmup"></iframe>
+  </div>
+	<h1>bootstrap-wysiwyg <br> <small>tiny wysiwyg rich text editor for Bootstrap</small></h1>
+	<hr>
+	<!---
+	Please read this before copying the toolbar:
+
+	* One of the best things about this widget is that it does not impose any styling on you, and that it allows you
+	* to create a custom toolbar with the options and functions that are good for your particular use. This toolbar
+	* is just an example - don't just copy it and force yourself to use the demo styling. Create your own. Read
+	* this page to understand how to customise it:
+    * https://github.com/mindmup/bootstrap-wysiwyg/blob/master/README.md#customising-
+	--->
+	<div id="alerts"></div>
     <div class="btn-toolbar" data-role="editor-toolbar" data-target="#editor">
       <div class="btn-group">
-        <a class="btn dropdown-toggle" data-toggle="dropdown" title="Font"><i class="icon-font"></i><b
-            class="caret"></b></a>
-        <ul class="dropdown-menu">
-        </ul>
-      </div>
-      <div class="btn-group">
-        <a class="btn dropdown-toggle" data-toggle="dropdown" title="Tamanho da Fonte"><i
-            class="icon-text-height"></i>&nbsp;<b class="caret"></b></a>
-        <ul class="dropdown-menu">
-          <li><a data-edit="fontSize 5">
-              <font size="5">Huge</font>
-            </a></li>
-          <li><a data-edit="fontSize 3">
-              <font size="3">Normal</font>
-            </a></li>
-          <li><a data-edit="fontSize 1">
-              <font size="1">Small</font>
-            </a></li>
-        </ul>
-      </div>
-      <div class="btn-group">
-        <a class="btn" data-edit="bold" title="Bold (Ctrl/Cmd+B)"><i class="icon-bold"></i></a>
-        <a class="btn" data-edit="italic" title="Italic (Ctrl/Cmd+I)"><i class="icon-italic"></i></a>
-        <a class="btn" data-edit="strikethrough" title="Strikethrough"><i class="icon-strikethrough"></i></a>
-      </div>
-      <div class="btn-group">
-        <a class="btn" data-edit="insertunorderedlist" title="Bullet list"><i class="icon-list-ul"></i></a>
-        <a class="btn" data-edit="insertorderedlist" title="Number list"><i class="icon-list-ol"></i></a>
-        <a class="btn" data-edit="outdent" title="Reduce indent (Shift+Tab)"><i class="icon-indent-left"></i></a>
-        <a class="btn" data-edit="indent" title="Indent (Tab)"><i class="icon-indent-right"></i></a>
-      </div>
-      <div class="btn-group">
-        <a class="btn" data-edit="justifyleft" title="Align Left (Ctrl/Cmd+L)"><i class="icon-align-left"></i></a>
-        <a class="btn" data-edit="justifycenter" title="Center (Ctrl/Cmd+E)"><i class="icon-align-center"></i></a>
-        <a class="btn" data-edit="justifyright" title="Align Right (Ctrl/Cmd+R)"><i class="icon-align-right"></i></a>
-        <a class="btn" data-edit="justifyfull" title="Justify (Ctrl/Cmd+J)"><i class="icon-align-justify"></i></a>
-      </div>
-      <div class="btn-group">
-        <a class="btn dropdown-toggle" data-toggle="dropdown" title="Hyperlink"><i class="icon-link"></i></a>
-        <div class="dropdown-menu input-append">
-          <input class="span2" placeholder="URL" type="text" data-edit="createLink" />
-          <button class="btn" type="button">Add</button>
+        <a class="btn dropdown-toggle" data-toggle="dropdown" title="" data-original-title="Font"><i class="icon-font"></i><b class="caret"></b></a>
+          <ul class="dropdown-menu">
+          <li><a data-edit="fontName Serif" style="font-family:'Serif'">Serif</a></li><li><a data-edit="fontName Sans" style="font-family:'Sans'">Sans</a></li><li><a data-edit="fontName Arial" style="font-family:'Arial'">Arial</a></li><li><a data-edit="fontName Arial Black" style="font-family:'Arial Black'">Arial Black</a></li><li><a data-edit="fontName Courier" style="font-family:'Courier'">Courier</a></li><li><a data-edit="fontName Courier New" style="font-family:'Courier New'">Courier New</a></li><li><a data-edit="fontName Comic Sans MS" style="font-family:'Comic Sans MS'">Comic Sans MS</a></li><li><a data-edit="fontName Helvetica" style="font-family:'Helvetica'">Helvetica</a></li><li><a data-edit="fontName Impact" style="font-family:'Impact'">Impact</a></li><li><a data-edit="fontName Lucida Grande" style="font-family:'Lucida Grande'">Lucida Grande</a></li><li><a data-edit="fontName Lucida Sans" style="font-family:'Lucida Sans'">Lucida Sans</a></li><li><a data-edit="fontName Tahoma" style="font-family:'Tahoma'">Tahoma</a></li><li><a data-edit="fontName Times" style="font-family:'Times'">Times</a></li><li><a data-edit="fontName Times New Roman" style="font-family:'Times New Roman'">Times New Roman</a></li><li><a data-edit="fontName Verdana" style="font-family:'Verdana'">Verdana</a></li></ul>
         </div>
-        <a class="btn" data-edit="unlink" title="Remove Hyperlink"><i class="icon-cut"></i></a>
+      <div class="btn-group">
+        <a class="btn dropdown-toggle" data-toggle="dropdown" title="" data-original-title="Font Size"><i class="icon-text-height"></i>&nbsp;<b class="caret"></b></a>
+          <ul class="dropdown-menu">
+          <li><a data-edit="fontSize 5"><font size="5">Huge</font></a></li>
+          <li><a data-edit="fontSize 3"><font size="3">Normal</font></a></li>
+          <li><a data-edit="fontSize 1"><font size="1">Small</font></a></li>
+          </ul>
+      </div>
+      <div class="btn-group">
+        <a class="btn" data-edit="bold" title="" data-original-title="Bold (Ctrl/Cmd+B)"><i class="icon-bold"></i></a>
+        <a class="btn" data-edit="italic" title="" data-original-title="Italic (Ctrl/Cmd+I)"><i class="icon-italic"></i></a>
+        <a class="btn" data-edit="strikethrough" title="" data-original-title="Strikethrough"><i class="icon-strikethrough"></i></a>
+        <a class="btn" data-edit="underline" title="" data-original-title="Underline (Ctrl/Cmd+U)"><i class="icon-underline"></i></a>
+      </div>
+      <div class="btn-group">
+        <a class="btn" data-edit="insertunorderedlist" title="" data-original-title="Bullet list"><i class="icon-list-ul"></i></a>
+        <a class="btn" data-edit="insertorderedlist" title="" data-original-title="Number list"><i class="icon-list-ol"></i></a>
+        <a class="btn" data-edit="outdent" title="" data-original-title="Reduce indent (Shift+Tab)"><i class="icon-indent-left"></i></a>
+        <a class="btn" data-edit="indent" title="" data-original-title="Indent (Tab)"><i class="icon-indent-right"></i></a>
+      </div>
+      <div class="btn-group">
+        <a class="btn" data-edit="justifyleft" title="" data-original-title="Align Left (Ctrl/Cmd+L)"><i class="icon-align-left"></i></a>
+        <a class="btn" data-edit="justifycenter" title="" data-original-title="Center (Ctrl/Cmd+E)"><i class="icon-align-center"></i></a>
+        <a class="btn" data-edit="justifyright" title="" data-original-title="Align Right (Ctrl/Cmd+R)"><i class="icon-align-right"></i></a>
+        <a class="btn" data-edit="justifyfull" title="" data-original-title="Justify (Ctrl/Cmd+J)"><i class="icon-align-justify"></i></a>
+      </div>
+      <div class="btn-group">
+		  <a class="btn dropdown-toggle" data-toggle="dropdown" title="" data-original-title="Hyperlink"><i class="icon-link"></i></a>
+		    <div class="dropdown-menu input-append">
+			    <input class="span2" placeholder="URL" type="text" data-edit="createLink">
+			    <button class="btn" type="button">Add</button>
+        </div>
+        <a class="btn" data-edit="unlink" title="" data-original-title="Remove Hyperlink"><i class="icon-cut"></i></a>
 
       </div>
 
       <div class="btn-group">
-        <a class="btn" title="Insert picture (or just drag & drop)" id="pictureBtn"><i class="icon-picture"></i></a>
-        <input type="file" data-role="magic-overlay" data-target="#pictureBtn" data-edit="insertImage" />
+        <a class="btn" title="" id="pictureBtn" data-original-title="Insert picture (or just drag &amp; drop)"><i class="icon-picture"></i></a>
+        <input type="file" data-role="magic-overlay" data-target="#pictureBtn" data-edit="insertImage" style="opacity: 0; position: absolute; top: 0px; left: 0px; width: 36px; height: 30px;">
       </div>
       <div class="btn-group">
-        <a class="btn" data-edit="undo" title="Undo (Ctrl/Cmd+Z)"><i class="icon-undo"></i></a>
-        <a class="btn" data-edit="redo" title="Redo (Ctrl/Cmd+Y)"><i class="icon-repeat"></i></a>
+        <a class="btn" data-edit="undo" title="" data-original-title="Undo (Ctrl/Cmd+Z)"><i class="icon-undo"></i></a>
+        <a class="btn" data-edit="redo" title="" data-original-title="Redo (Ctrl/Cmd+Y)"><i class="icon-repeat"></i></a>
       </div>
-      <input type="text" data-edit="inserttext" id="voiceBtn" x-webkit-speech="">
+      <input type="text" data-edit="inserttext" id="voiceBtn" x-webkit-speech="" style="display: none;">
     </div>
 
-    <div id="editor">
-      Go ahead&hellip;
+    <div id="editor" contenteditable="true">
+      Go ahead…
     </div>
   </div>
 
-  <form method="post" id="form_redacao">
-    {% csrf_token %}
-    {% if form.errors %}
-    <!-- Error messaging -->
-    <div id="errors">
-      <div class="inner">
-        <p>There were some errors in the information you entered. Please correct the following:</p>
-        <ul>
-          {% for field in form %}
-          {% if field.errors %}<li>{{ field.label }}: {{ field.errors|striptags }}</li>{% endif %}
-          {% endfor %}
-        </ul>
-      </div>
+<div class="row">
+    <div class="span6">
+          <h2>About</h2>
+          <p>
+          This <a href="https://github.com/mindmup/bootstrap-wysiwyg/blob/master/bootstrap-wysiwyg.js">tiny (5KB, &lt; 200 lines) jQuery Bootstrap plugin</a> turns any DIV into a WYSIWYG
+          rich-content editor, inspired by <a href="http://premiumsoftware.net/cleditor/">CLEditor</a> and
+              <a href="http://jhollingworth.github.com/bootstrap-wysihtml5/">bootstrap-wysihtml5</a>.
+          Here are the key features:
+      </p>
+          <ul>
+            <li>Automatically binds standard hotkeys for common operations on Mac and Windows</li>
+            <li>Drag and drop files to insert images, support image upload (also taking photos on mobile devices)</li>
+            <li>Voice dictation input (only in Chrome)</li>
+            <li>Allows a custom built toolbar, no magic markup generators, enabling the web site to use all the goodness of Bootstrap, Font Awesome and so on...</li>
+            <li>Does not force any styling - it's all up to you</li>
+            <li>Uses standard browser features, no magic non-standard code, toolbar and keyboard configurable to execute any <a href="https://developer.mozilla.org/en/docs/Rich-Text_Editing_in_Mozilla">supported browser command</a></li>
+            <li>Does not create a separate frame, backup text areas etc - instead keeps it simple and runs everything inline in a DIV</li>
+            <li>(Optionally) cleans up trailing whitespace and empty divs and spans</li>
+            <li>Requires a modern browser (tested in Chrome 26, Firefox 19, Safari 6, reported by users to work in IE10)</li>
+            <li>Supports mobile devices (tested on IOS 6 Ipad/Iphone and Android 4.1.1 Chrome)</li>
+          </ul>
+
+
+        <h2>Why?</h2>
+
+        <a href="https://www.mindmup.com"><img class="span5" src="promo-868x350.png"></a>
+        <br clear="all">
+        <p>
+          While building a content editor for <a href="https://www.mindmup.com">MindMup</a> we found plenty of good HTML5 WYSWYG editors online, but most were duplicating
+          functionality that already exists in jQuery and Bootstrap, implementing things that were meanwhile added to HTML5 and supported in major browsers,
+          or doing too much magic such as inserting IFrames with backup text-areas. Most of this was to work around quirks in older browsers (which we didn't need) and
+          caused focus problems on touch devices (which was an issue for us). Too much magic caused problems with
+          bootstrap modals (a must for us). Most editors also build their own toolbars, which embed additional CSS and images and always
+          turn out to be much worse than standard Bootstrap buttons. </p>
+          <p>It turns out, with HTML5, everything we need can fit into less than 5K. We built this tiny tiny editor that does everything we need, does not impose
+          any particular additional CSS and uses modern browser functionality without reimplementing jQuery and Bootstrap. </p>
+          <p>It's released under the MIT license, so fork and enjoy!  </p>
+
+
+
     </div>
-    <!-- /Error messaging -->
-    {% endif %}
-    <textarea name="texto" cols="40" rows="10" required="" id="id_texto" style="display: none;"></textarea>
-    <p>
-      <label for="id_check_in">Check in:</label> <input type="text" name="check_in" required="" id="id_check_in">
-    </p>
-    <p>
-      <label for="id_check_in">Check out:</label> <input type="text" name="check_out" required="" id="id_check_out">
-    </p>
-    <input type="button" id="btn-enviar" value="Enviar">
-  </form>
+    <div class="span6">
+      <h2>Usage</h2>
+      <pre class="prettyprint linenums prettyprinted" style=""><ol class="linenums"><li class="L0"><span class="pln">$</span><span class="pun">(</span><span class="str">'#editor'</span><span class="pun">).</span><span class="pln">wysiwyg</span><span class="pun">();</span></li></ol></pre>
+<p>Don't forget to style your editor div:</p>
+<pre class="prettyprint linenums prettyprinted" style=""><ol class="linenums"><li class="L0"><span class="pln"> </span><span class="com">#editor {overflow:scroll; max-height:300px}</span></li></ol></pre>
+<p>If you want to use this for a mobile web site, make sure to read about
+<a href="https://github.com/mindmup/bootstrap-wysiwyg#styling-for-mobile-devices">how to style it</a> to optimise mobile screen usage and experience (please note that this
+demo page isn't optimised for mobile access).</p>
 
-  <script>
-    $(function () {
-      function initToolbarBootstrapBindings() {
-        var fonts = ['Serif', 'Sans', 'Arial', 'Arial Black', 'Courier',
-          'Courier New', 'Comic Sans MS', 'Helvetica', 'Impact', 'Lucida Grande', 'Lucida Sans', 'Tahoma', 'Times',
-          'Times New Roman', 'Verdana'],
-          fontTarget = $('[title=Font]').siblings('.dropdown-menu');
-        $.each(fonts, function (idx, fontName) {
-          fontTarget.append($('<li><a data-edit="fontName ' + fontName + '" style="font-family:\'' + fontName + '\'">' + fontName + '</a></li>'));
-        });
-        $('a[title]').tooltip({ container: 'body' });
-        $('.dropdown-menu input').click(function () { return false; })
-          .change(function () { $(this).parent('.dropdown-menu').siblings('.dropdown-toggle').dropdown('toggle'); })
-          .keydown('esc', function () { this.value = ''; $(this).change(); });
+      <p>Optionally, also create a toolbar (see the source of this page for an example):</p>
+<pre class="prettyprint linenums prettyprinted" style=""><ol class="linenums"><li class="L0"><span class="tag">&lt;div</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"btn-toolbar"</span><span class="pln"> </span><span class="atn">data-role</span><span class="pun">=</span><span class="atv">"editor-toolbar"</span></li><li class="L1"><span class="pln">        </span><span class="atn">data-target</span><span class="pun">=</span><span class="atv">"#editor"</span><span class="tag">&gt;</span></li><li class="L2"><span class="pln">  ...</span></li><li class="L3"><span class="tag">&lt;/div&gt;</span><span class="pln"> </span></li></ol></pre>
+<p>In the toolbar, execute simple commands by adding a data-edit attribute to a link.</p><p>
+</p><pre class="prettyprint linenums prettyprinted" style=""><ol class="linenums"><li class="L0"><span class="pln">  </span><span class="tag">&lt;a</span><span class="pln"> </span><span class="atn">data-edit</span><span class="pun">=</span><span class="atv">"bold"</span><span class="tag">&gt;</span><span class="pln">...</span><span class="tag">&lt;/a&gt;</span></li></ol></pre>
+<p>execute more complex commands by adding an argument after a blank or providing an input with a data-edit command (the input value is used as an argument). In case of
+file inputs, the file contents are read in using the FileReader API and used as the command value.</p><p>
+</p><pre class="prettyprint linenums prettyprinted" style=""><ol class="linenums"><li class="L0"><span class="tag">&lt;a</span><span class="pln"> </span><span class="atn">data-edit</span><span class="pun">=</span><span class="atv">"fontName Arial"</span><span class="tag">&gt;</span><span class="pln">...</span><span class="tag">&lt;/a&gt;</span></li><li class="L1"><span class="pln">...</span></li><li class="L2"><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"text"</span><span class="pln"> </span><span class="atn">data-edit</span><span class="pun">=</span><span class="atv">"createLink"</span><span class="tag">/&gt;</span></li><li class="L3"><span class="pln">...</span></li><li class="L4"><span class="tag">&lt;input</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"file"</span><span class="pln"> </span><span class="atn">data-edit</span><span class="pun">=</span><span class="atv">"insertImage"</span><span class="pln"> </span><span class="tag">/&gt;</span></li></ol></pre>
+<p>Use standard jQuery methods to access and set content and focus. You can also ask for cleaned up HTML content:</p>
+<pre class="prettyprint linenums prettyprinted" style=""><ol class="linenums"><li class="L0"><span class="pln"> $</span><span class="pun">(</span><span class="str">'#editor'</span><span class="pun">).</span><span class="pln">cleanHtml</span><span class="pun">()</span></li></ol></pre>
 
-        $('[data-role=magic-overlay]').each(function () {
-          var overlay = $(this), target = $(overlay.data('target'));
-          overlay.css('opacity', 0).css('position', 'absolute').offset(target.offset()).width(target.outerWidth()).height(target.outerHeight());
-        });
-        if ("onwebkitspeechchange" in document.createElement("input")) {
-          var editorOffset = $('#editor').offset();
-          $('#voiceBtn').css('position', 'absolute').offset({ top: editorOffset.top, left: editorOffset.left + $('#editor').innerWidth() - 35 });
-        } else {
-          $('#voiceBtn').hide();
-        }
-      };
-      function showErrorAlert(reason, detail) {
-        var msg = '';
-        if (reason === 'unsupported-file-type') { msg = "Unsupported format " + detail; }
-        else {
-          console.log("error uploading file", reason, detail);
-        }
-        $('<div class="alert"> <button type="button" class="close" data-dismiss="alert">&times;</button>' +
-          '<strong>File upload error</strong> ' + msg + ' </div>').prependTo('#alerts');
-      };
-      initToolbarBootstrapBindings();
-      $('#editor').wysiwyg({ fileUploadError: showErrorAlert });
-      window.prettyPrint && prettyPrint();
-    });
-  </script>
-  <a href="https://github.com/mindmup/bootstrap-wysiwyg/"><img style="position: absolute; top: 0; right: 0; border: 0;"
-      src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png" alt="Fork me on GitHub"></a>
-  <div id="fb-root"></div>
-  <script>
-    (function (i, s, o, g, r, a, m) {
-      i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
-        (i[r].q = i[r].q || []).push(arguments)
-      }, i[r].l = 1 * new Date(); a = s.createElement(o),
-        m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
-    })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
-    ga('create', 'UA-37452180-6', 'github.io');
-    ga('send', 'pageview');
-  </script>
-  <script>(function (d, s, id) {
-      var js, fjs = d.getElementsByTagName(s)[0];
-      if (d.getElementById(id)) return;
-      js = d.createElement(s); js.id = id;
-      js.src = "http://connect.facebook.net/en_GB/all.js#xfbml=1";
-      fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));
-  </script>
-
-  <script>!function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0]; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = "http://platform.twitter.com/widgets.js"; fjs.parentNode.insertBefore(js, fjs); } }(document, "script", "twitter-wjs");</script>
+			 <p style="text-align:center;">
+				<a class="btn btn-large btn-primary jumbo" href="https://github.com/mindmup/bootstrap-wysiwyg/">View project on Github</a>
+      </p>
+			 <p style="text-align:center; margin-top:20px">
+        <a class="btn" href="mailto:contact@mindmup.com"><i class="icon-envelope"></i></a>
+          <a class="btn" href="http://facebook.com/mindmupapp"><i class="icon-facebook"></i></a>
+          <a class="btn" href="http://twitter.com/mindmup"><i class="icon-twitter"></i></a>
+          <a class="btn" href="https://plus.google.com/u/0/communities/112831595986131146219"><i class="icon-google-plus"></i></a>
+        </p>
 
 
-  <script>
-    $('#btn-enviar').click(function () {
-      $("[name=texto]").val($("#editor").html());
-      // aqui vc atualiza o textarea antes do submit
-      $('#form_redacao').submit();
-    });
-  </script>
-</body>
+		</div>
+	</div>
+</div>
+<script>
+  $(function(){
+    function initToolbarBootstrapBindings() {
+      var fonts = ['Serif', 'Sans', 'Arial', 'Arial Black', 'Courier',
+            'Courier New', 'Comic Sans MS', 'Helvetica', 'Impact', 'Lucida Grande', 'Lucida Sans', 'Tahoma', 'Times',
+            'Times New Roman', 'Verdana'],
+            fontTarget = $('[title=Font]').siblings('.dropdown-menu');
+      $.each(fonts, function (idx, fontName) {
+          fontTarget.append($('<li><a data-edit="fontName ' + fontName +'" style="font-family:\''+ fontName +'\'">'+fontName + '</a></li>'));
+      });
+      $('a[title]').tooltip({container:'body'});
+    	$('.dropdown-menu input').click(function() {return false;})
+		    .change(function () {$(this).parent('.dropdown-menu').siblings('.dropdown-toggle').dropdown('toggle');})
+        .keydown('esc', function () {this.value='';$(this).change();});
 
-</html>
+      $('[data-role=magic-overlay]').each(function () {
+        var overlay = $(this), target = $(overlay.data('target'));
+        overlay.css('opacity', 0).css('position', 'absolute').offset(target.offset()).width(target.outerWidth()).height(target.outerHeight());
+      });
+      if ("onwebkitspeechchange"  in document.createElement("input")) {
+        var editorOffset = $('#editor').offset();
+        $('#voiceBtn').css('position','absolute').offset({top: editorOffset.top, left: editorOffset.left+$('#editor').innerWidth()-35});
+      } else {
+        $('#voiceBtn').hide();
+      }
+	};
+	function showErrorAlert (reason, detail) {
+		var msg='';
+		if (reason==='unsupported-file-type') { msg = "Unsupported format " +detail; }
+		else {
+			console.log("error uploading file", reason, detail);
+		}
+		$('<div class="alert"> <button type="button" class="close" data-dismiss="alert">&times;</button>'+
+		 '<strong>File upload error</strong> '+msg+' </div>').prependTo('#alerts');
+	};
+    initToolbarBootstrapBindings();
+	$('#editor').wysiwyg({ fileUploadError: showErrorAlert} );
+    window.prettyPrint && prettyPrint();
+  });
+</script>
+<a href="https://github.com/mindmup/bootstrap-wysiwyg/"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png" alt="Fork me on GitHub"></a>
+<div id="fb-root" class=" fb_reset"><div style="position: absolute; top: -10000px; width: 0px; height: 0px;"><div><iframe name="fb_xdm_frame_https" id="fb_xdm_frame_https" aria-hidden="true" title="Facebook Cross Domain Communication Frame" tabindex="-1" frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="no" allow="encrypted-media" src="https://staticxx.facebook.com/connect/xd_arbiter.php?version=44#channel=fd0331ed7c8d2&amp;origin=https%3A%2F%2Fmindmup.github.io" style="border: none;"></iframe></div><div></div></div></div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-37452180-6', 'github.io');
+  ga('send', 'pageview');
+</script>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "https://connect.facebook.net/en_GB/all.js#xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+ </script>
+
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+
+
+<style>.yOA0sEJdblHfyhf { color:#2e66ff !important; }
+.yOA0sEJdblHfyhf.ba-outline { outline-color:#2e66ff }
+.yOA0sEJdblHfyhf.VnVQEWtl4JEIcHPAXE78:hover, .yOA0sEJdblHfyhf.VnVQEWtl4JEIcHPAXE78.active { color:#295cdb !important; }
+.pAN9BADvH0zKErZ2 { background-color:#2e66ff !important; }
+.pAN9BADvH0zKErZ2.VnVQEWtl4JEIcHPAXE78:hover, .pAN9BADvH0zKErZ2.VnVQEWtl4JEIcHPAXE78.active { background:#295cdb !important; }
+.ba-border-primary { border-color:#295cdb !important }
+.NS2B9oJlWGXCPeJQpf { background:#eb8f1e !important; color:white !important; }
+.NS2B9oJlWGXCPeJQpf.VnVQEWtl4JEIcHPAXE78:hover, .NS2B9oJlWGXCPeJQpf.VnVQEWtl4JEIcHPAXE78.active { background:#ff9b21 !important; }
+.ba-color-secondary { color:#eb8f1e !important;  }
+.ba-color-secondary.VnVQEWtl4JEIcHPAXE78:hover, .ba-color-secondary.VnVQEWtl4JEIcHPAXE78.active { color:#ff9b21 !important; }
+.ba-color-tertiary { color:#eb8f1e !important }
+.ba-color-tertiary.VnVQEWtl4JEIcHPAXE78:hover, .ba-color-tertiary.VnVQEWtl4JEIcHPAXE78.active { color:#ff9b21 !important }
+.xVvr5zFDIR2DMki { background:#eb8f1e !important }
+.ba-bg-tertiary.VnVQEWtl4JEIcHPAXE78:hover, .ba-bg-tertiary.VnVQEWtl4JEIcHPAXE78.active { background:#ff9b21 !important }</style><iframe scrolling="no" frameborder="0" allowtransparency="true" src="https://platform.twitter.com/widgets/widget_iframe.6a44a9d26983bbb5b04ae399f9e496fe.html?origin=https%3A%2F%2Fmindmup.github.io" title="Twitter settings iframe" style="display: none;"></iframe></body></html>
